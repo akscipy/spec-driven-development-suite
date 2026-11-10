@@ -1,0 +1,67 @@
+{
+  "checks": [
+    {
+      "name": "stable-sort-no-mutation",
+      "pass": true
+    },
+    {
+      "name": "invalid-items-and-duplicates",
+      "pass": true
+    },
+    {
+      "name": "container-and-limit-types",
+      "pass": true
+    },
+    {
+      "name": "full-validation-before-limit",
+      "pass": true
+    },
+    {
+      "name": "truncation-empty-legacy",
+      "pass": true
+    },
+    {
+      "name": "cli-ranking",
+      "pass": true
+    },
+    {
+      "name": "cli-limit",
+      "pass": true
+    },
+    {
+      "name": "cli-empty",
+      "pass": true
+    },
+    {
+      "name": "cli-invalid-json",
+      "pass": true
+    },
+    {
+      "name": "cli-invalid-items",
+      "pass": true
+    },
+    {
+      "name": "cli-invalid-limit",
+      "pass": true
+    },
+    {
+      "name": "cli-invalid-argument",
+      "pass": true
+    }
+  ],
+  "passed": 12,
+  "total": 12,
+  "release": "0.3.0",
+  "scenario": "Independent extracted-package onboarding and full managed API/CLI feature",
+  "solver_tests": 20,
+  "observations": [
+    "Dry-run/install/status succeeded with 32 installed files and no modifications",
+    "Managed requirements/design/tasks/verification created through installed skills",
+    "Historical E-001 retained as outdated warning; current E-002 supported all six ACs",
+    "No blocking README or installation friction; recorder log discoverability improved after feedback"
+  ],
+  "limitations": [
+    "Independent agent rather than an external human team",
+    "Extracted candidate preceded final empty-argv schema correction and log-location output improvement; current source completion check and acceptance checks also passed"
+  ]
+}

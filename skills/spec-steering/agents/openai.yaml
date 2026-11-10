@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Project Steering"
+  short_description: "Capture project conventions and spec workflow rules"
+  default_prompt: "Use $spec-steering for the current feature and requested scope."

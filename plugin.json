@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "spec-driven-development-suite",
+  "version": "0.4.3",
+  "description": "Spec-driven development skills with connected requirements, implementation tasks, and validation evidence.",
+  "keywords": [
+    "specifications",
+    "development",
+    "verification"
+  ],
+  "author": {
+    "name": "Spec-Driven Development Suite contributors"
+  }
+}

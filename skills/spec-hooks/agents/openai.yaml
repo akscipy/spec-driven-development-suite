@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Development Hooks"
+  short_description: "Connect spec checks to real development events"
+  default_prompt: "Use $spec-hooks for the current feature and requested scope."

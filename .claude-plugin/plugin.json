@@ -1,0 +1,9 @@
+{
+  "name": "spec-driven-development-suite",
+  "version": "0.4.3",
+  "description": "Spec-driven development skills with connected requirements, implementation tasks, and validation evidence.",
+  "skills": "./skills/",
+  "author": {
+    "name": "Spec-Driven Development Suite contributors"
+  }
+}

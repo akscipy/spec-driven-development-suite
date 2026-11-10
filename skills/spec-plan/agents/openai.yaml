@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Task Planning"
+  short_description: "Create executable tasks with acceptance traceability"
+  default_prompt: "Use $spec-plan for the current feature and requested scope."

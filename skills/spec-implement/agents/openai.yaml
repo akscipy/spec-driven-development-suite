@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Implementation"
+  short_description: "Implement planned work and record real progress"
+  default_prompt: "Use $spec-implement for the current feature and requested scope."

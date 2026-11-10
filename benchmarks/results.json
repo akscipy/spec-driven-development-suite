@@ -1,0 +1,166 @@
+{
+  "release": "0.3.0",
+  "date_local": "2026-11-09",
+  "request": "Extend parseDuration(text) in src/duration.js to accept compound durations with units d, h, m, s. Components are nonnegative integer amounts; units must be unique and in descending order. Accept uppercase units, surrounding whitespace, and optional whitespace between components. Return total seconds; zero is valid. Reject empty input, bare numbers, signs, decimals, unknown/repeated/out-of-order units, internal junk, and unsafe integer totals with RangeError. Reject non-string inputs with TypeError. Preserve existing valid single-component inputs. Complete the feature and run appropriate validation. No dependencies, services, commits, or publication.",
+  "repetitions": 1,
+  "task_families": 1,
+  "configuration": "Fresh contexts, same inherited model/settings; parallel shared Windows host; baseline skill exclusion instructed, natural skill location supplied, explicit workflow invoked",
+  "results": [
+    {
+      "project": "baseline",
+      "passed": 8,
+      "total": 8,
+      "checks": [
+        {
+          "name": "legacy",
+          "pass": true
+        },
+        {
+          "name": "compound",
+          "pass": true
+        },
+        {
+          "name": "case-whitespace",
+          "pass": true
+        },
+        {
+          "name": "zero",
+          "pass": true
+        },
+        {
+          "name": "type",
+          "pass": true
+        },
+        {
+          "name": "grammar",
+          "pass": true
+        },
+        {
+          "name": "unit-order",
+          "pass": true
+        },
+        {
+          "name": "safe-integer",
+          "pass": true
+        }
+      ],
+      "evaluation_seconds": 0.181,
+      "source_sha256": "9acd5d8f6ad43387feb3c4a6ea61476fdabe6987ac50368db9ac8ab25f2870f3",
+      "spec_record_present": false,
+      "markdown_files": 1,
+      "solver_tests": 5,
+      "skills_selected": [],
+      "workflow_depth": "lightweight",
+      "tokens": null,
+      "cost": null,
+      "model": "Inherited host model; identifier not exposed to evaluator"
+    },
+    {
+      "project": "natural",
+      "passed": 8,
+      "total": 8,
+      "checks": [
+        {
+          "name": "legacy",
+          "pass": true
+        },
+        {
+          "name": "compound",
+          "pass": true
+        },
+        {
+          "name": "case-whitespace",
+          "pass": true
+        },
+        {
+          "name": "zero",
+          "pass": true
+        },
+        {
+          "name": "type",
+          "pass": true
+        },
+        {
+          "name": "grammar",
+          "pass": true
+        },
+        {
+          "name": "unit-order",
+          "pass": true
+        },
+        {
+          "name": "safe-integer",
+          "pass": true
+        }
+      ],
+      "evaluation_seconds": 0.159,
+      "source_sha256": "2b8c0393fe58488c37255d3105122d61bbac97be697eb5e5a315b41be86ec953",
+      "spec_record_present": false,
+      "markdown_files": 1,
+      "solver_tests": 7,
+      "skills_selected": [],
+      "workflow_depth": "lightweight",
+      "tokens": null,
+      "cost": null,
+      "model": "Inherited host model; identifier not exposed to evaluator"
+    },
+    {
+      "project": "explicit",
+      "passed": 8,
+      "total": 8,
+      "checks": [
+        {
+          "name": "legacy",
+          "pass": true
+        },
+        {
+          "name": "compound",
+          "pass": true
+        },
+        {
+          "name": "case-whitespace",
+          "pass": true
+        },
+        {
+          "name": "zero",
+          "pass": true
+        },
+        {
+          "name": "type",
+          "pass": true
+        },
+        {
+          "name": "grammar",
+          "pass": true
+        },
+        {
+          "name": "unit-order",
+          "pass": true
+        },
+        {
+          "name": "safe-integer",
+          "pass": true
+        }
+      ],
+      "evaluation_seconds": 0.167,
+      "source_sha256": "15220103a02ca26cd71dc66b345836586dfa1c8c6a55467ebdd7f5c8c09e64e6",
+      "spec_record_present": false,
+      "markdown_files": 1,
+      "solver_tests": 9,
+      "skills_selected": [
+        "spec-workflow"
+      ],
+      "workflow_depth": "lightweight",
+      "tokens": null,
+      "cost": null,
+      "model": "Inherited host model; identifier not exposed to evaluator"
+    }
+  ],
+  "conclusion": "All configurations passed 8/8 independent behavior groups. No comparative quality or speed advantage demonstrated. Natural selection chose no suite for this localized change; explicit workflow appropriately stayed lightweight.",
+  "limitations": [
+    "One task family, one repetition per configuration",
+    "Natural condition is assisted discovery, not uncontrolled host routing",
+    "No token/cost telemetry or stable exposed model identifier",
+    "Speed and cost were not measured"
+  ]
+}

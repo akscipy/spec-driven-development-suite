@@ -1,0 +1,38 @@
+# Generated Python files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local development output
+tests/.runs/
+dist/
+delivery/
+backups/
+trials/
+build/
+output/
+.codex-finalizer/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.aws/
+.ssh/
+*.pem
+*.key
+.codex-spec-suite-install.json
+.codex-spec-suite-backups/
+.codex-spec-suite.lock
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Review"
+  short_description: "Find actionable gaps across specs and implementation"
+  default_prompt: "Use $spec-review for the current feature and requested scope."

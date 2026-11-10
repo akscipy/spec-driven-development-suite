@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Workflow"
+  short_description: "Coordinate requirements through verified delivery"
+  default_prompt: "Use $spec-workflow for the current feature and requested scope."

@@ -1,0 +1,106 @@
+{
+  "schema_version": 2,
+  "feature": "bounded-slug",
+  "mode": "autonomous",
+  "stage": "plan",
+  "stop_after": "verify",
+  "next_action": "Inspect the example and capture actual validation before marking tasks done",
+  "decisions": [
+    "Example scope: ASCII filtering without transliteration; no external dependencies"
+  ],
+  "blockers": [],
+  "artifacts": {
+    "requirements": {
+      "path": "specs/bounded-slug/requirements.md",
+      "status": "ready"
+    },
+    "design": {
+      "path": "specs/bounded-slug/design.md",
+      "status": "ready"
+    },
+    "tasks": {
+      "path": "specs/bounded-slug/tasks.md",
+      "status": "ready"
+    }
+  },
+  "requirements": [
+    {
+      "id": "R-001",
+      "status": "active"
+    },
+    {
+      "id": "R-002",
+      "status": "active"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "AC-001",
+      "status": "active",
+      "requirements": [
+        "R-001"
+      ]
+    },
+    {
+      "id": "AC-002",
+      "status": "active",
+      "requirements": [
+        "R-001"
+      ]
+    },
+    {
+      "id": "AC-003",
+      "status": "active",
+      "requirements": [
+        "R-002"
+      ]
+    }
+  ],
+  "design": {
+    "requirements": [
+      "R-001",
+      "R-002"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "T-001",
+      "state": "pending",
+      "depends_on": [],
+      "requirements": [
+        "R-001",
+        "R-002"
+      ],
+      "criteria": [
+        "AC-001",
+        "AC-002",
+        "AC-003"
+      ],
+      "done_when": "Implementation inspected against all acceptance criteria and the five focused tests pass",
+      "evidence": []
+    },
+    {
+      "id": "T-002",
+      "state": "pending",
+      "depends_on": [
+        "T-001"
+      ],
+      "requirements": [
+        "R-001",
+        "R-002"
+      ],
+      "criteria": [
+        "AC-001",
+        "AC-002",
+        "AC-003"
+      ],
+      "done_when": "Verification summarizes observed results and final record passes completion checks",
+      "evidence": []
+    }
+  ],
+  "inputs": [
+    "src",
+    "tests"
+  ],
+  "evidence": []
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Resume"
+  short_description: "Recover accurate state and continue feature work"
+  default_prompt: "Use $spec-resume for the current feature and requested scope."

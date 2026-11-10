@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Verification"
+  short_description: "Check acceptance criteria against current evidence"
+  default_prompt: "Use $spec-verify for the current feature and requested scope."

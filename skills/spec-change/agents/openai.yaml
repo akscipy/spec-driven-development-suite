@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Change Analysis"
+  short_description: "Keep specs coherent when feature intent changes"
+  default_prompt: "Use $spec-change for the current feature and requested scope."

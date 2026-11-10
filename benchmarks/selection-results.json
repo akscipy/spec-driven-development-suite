@@ -1,0 +1,119 @@
+{
+  "release": "0.3.0",
+  "date": "2026-11-09",
+  "fresh_sessions": 36,
+  "skill_areas": 12,
+  "relevant_requests": {
+    "passed": 24,
+    "total": 24
+  },
+  "skip_requests": {
+    "passed": 12,
+    "total": 12
+  },
+  "scope_checks": {
+    "passed": 36,
+    "total": 36
+  },
+  "primary_skill_read_recorded": 24,
+  "families": {
+    "workflow": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "discover": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "requirements": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "design": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "plan": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "implement": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "verify": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "change": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "resume": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "review": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "steering": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "hooks": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "typo": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "explain": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "code-review": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "prose": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "arithmetic": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    },
+    "one-line": {
+      "runs": 2,
+      "selection_passed": 2,
+      "scope_passed": 2
+    }
+  },
+  "limits": [
+    "Same inherited model and local host; not cross-model certification",
+    "Two phrasings per family, not a large randomized repeated trial",
+    "Skill reads recorded by agents, with observable artifact checks; no independent host call-trace collector",
+    "Three missing reporting files collected in follow-up turns after original answers, without changing task work",
+    "Seven second-wording cases use JavaScript fixtures; others use Python or non-code requests",
+    "Event automation cases test proposal selection and non-application, not installed hook operation"
+  ]
+}

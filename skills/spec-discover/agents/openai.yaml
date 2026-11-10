@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Discovery"
+  short_description: "Ground feature specifications in repository evidence"
+  default_prompt: "Use $spec-discover for the current feature and requested scope."

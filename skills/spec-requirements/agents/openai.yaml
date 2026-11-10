@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Requirements"
+  short_description: "Define observable behavior and acceptance criteria"
+  default_prompt: "Use $spec-requirements for the current feature and requested scope."

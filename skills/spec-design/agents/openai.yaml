@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Design"
+  short_description: "Turn requirements into a grounded technical design"
+  default_prompt: "Use $spec-design for the current feature and requested scope."

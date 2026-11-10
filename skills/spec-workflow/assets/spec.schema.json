@@ -1,0 +1,481 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:codex-spec-suite:feature:v2",
+  "title": "Spec-Driven Development Suite feature record v2",
+  "description": "Shape contract. Filesystem existence, references, ordering, evidence freshness and workflow completion are checked by spec_check.py.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "feature": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "mode": {
+      "enum": [
+        "guided",
+        "autonomous"
+      ]
+    },
+    "stage": {
+      "enum": [
+        "requirements",
+        "design",
+        "plan",
+        "implement",
+        "verify",
+        "complete"
+      ]
+    },
+    "stop_after": {
+      "enum": [
+        "requirements",
+        "design",
+        "plan",
+        "implement",
+        "verify"
+      ]
+    },
+    "pause_after_task": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^T-[0-9]{3,}$"
+        }
+      ]
+    },
+    "next_action": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "requirements": {
+          "$ref": "#/$defs/artifact"
+        },
+        "design": {
+          "$ref": "#/$defs/artifact"
+        },
+        "tasks": {
+          "$ref": "#/$defs/artifact"
+        },
+        "verification": {
+          "$ref": "#/$defs/artifact"
+        }
+      },
+      "required": [
+        "requirements"
+      ],
+      "additionalProperties": false
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/requirement"
+      }
+    },
+    "criteria": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/criterion"
+      }
+    },
+    "design": {
+      "type": "object",
+      "properties": {
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^R-[0-9]{3,}$"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "requirements"
+      ],
+      "additionalProperties": false
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/task"
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 0,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "feature",
+    "mode",
+    "stage",
+    "stop_after",
+    "next_action",
+    "decisions",
+    "blockers",
+    "artifacts",
+    "requirements",
+    "criteria",
+    "tasks",
+    "inputs",
+    "evidence"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "ready",
+            "awaiting-review",
+            "approved",
+            "stale"
+          ]
+        },
+        "approval": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            {
+              "type": "object",
+              "minProperties": 1
+            }
+          ]
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "path",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "requirement": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^R-[0-9]{3,}$"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "retired"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "criterion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^AC-[0-9]{3,}$"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "retired"
+          ]
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^R-[0-9]{3,}$"
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "requirements"
+      ],
+      "additionalProperties": false
+    },
+    "task": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^T-[0-9]{3,}$"
+        },
+        "state": {
+          "enum": [
+            "pending",
+            "in-progress",
+            "blocked",
+            "done",
+            "superseded"
+          ]
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^T-[0-9]{3,}$"
+          },
+          "uniqueItems": true
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^R-[0-9]{3,}$"
+          },
+          "uniqueItems": true
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^AC-[0-9]{3,}$"
+          },
+          "uniqueItems": true
+        },
+        "done_when": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^E-[0-9]{3,}$"
+          },
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "state",
+        "depends_on",
+        "requirements",
+        "criteria",
+        "done_when",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^E-[0-9]{3,}$"
+        },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^AC-[0-9]{3,}$"
+          },
+          "uniqueItems": true
+        },
+        "kind": {
+          "enum": [
+            "command",
+            "manual"
+          ]
+        },
+        "outcome": {
+          "enum": [
+            "pass",
+            "fail",
+            "blocked",
+            "untested"
+          ]
+        },
+        "snapshot": {
+          "$ref": "#/$defs/snapshot"
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "context": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "command": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "exit_code": {
+          "type": "integer"
+        },
+        "log": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "log_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "observation": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "criteria",
+        "kind",
+        "outcome",
+        "snapshot",
+        "recorded_at",
+        "context"
+      ],
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "properties": {
+            "kind": {
+              "const": "command"
+            }
+          },
+          "required": [
+            "command",
+            "exit_code",
+            "log",
+            "log_sha256"
+          ]
+        },
+        {
+          "properties": {
+            "kind": {
+              "const": "manual"
+            }
+          },
+          "required": [
+            "observation"
+          ]
+        }
+      ]
+    },
+    "snapshot": {
+      "type": "object",
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "files": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      },
+      "required": [
+        "sha256",
+        "files"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
