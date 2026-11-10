@@ -13,6 +13,16 @@ Sources: [Claude Code skills](https://code.claude.com/docs/en/skills) and [Codex
 
 `--agent` and `--scope` select the documented directory. `--destination` supports custom directories, including existing installations in `~/.codex/skills`. Do not combine these selectors. Avoid duplicate installation scopes unless you understand the host's precedence rules. Installation leaves project guidance files unchanged.
 
+## Codex in VS Code
+
+The Codex IDE extension supports standalone skills. The suite's `--agent codex` installer uses the Codex discovery directories shown above for user or project scope. Follow the [VS Code installation steps](README.md#codex-in-vs-code) from the suite folder in VS Code's integrated terminal, then open the target project in the Codex extension.
+
+Type `$spec-workflow` in a Codex chat to select the workflow explicitly, or use a normal-language request. Codex detects skill changes automatically; restart Codex if the new skills do not appear. See [OpenAI's skill documentation](https://learn.chatgpt.com/docs/build-skills).
+
+For WSL, development containers or remote sessions, install where Codex executes. A Windows user installation does not place skills into a separate Linux home directory. Use the Python command available in that environment and the same installation scope when checking status or removing the suite.
+
+Directory selection and installation are covered by the recorded tool checks. A live VS Code extension session is not part of the recorded acceptance evidence.
+
 ## Runtime
 
 Suite tools require Python 3.10+ and the standard library. Projects retain their own runtime/test dependencies. Examples use the Python standard library. Validation has been executed on Windows 11 with Python 3.12.10; JavaScript exercises used Node 24.22.1. The supplied CI configuration covers Windows/Linux and multiple Python versions; executed results are listed in the validation report.

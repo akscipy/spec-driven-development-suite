@@ -8,6 +8,10 @@ It connects requirements, technical decisions, tasks, and acceptance evidence so
 
 Use `--agent codex` or `--agent claude`. Select project or user scope as shown in the [README](README.md). Use `--destination` for a custom or existing installation path. [Compatibility](COMPATIBILITY.md) lists directory layouts and plugin details.
 
+### Can I use it in the Codex VS Code extension?
+
+Yes. Run the Codex install command in VS Code's terminal from the suite folder, then use the skills in a Codex chat. The [VS Code installation section](README.md#codex-in-vs-code) includes installation, status checks and project-only setup. If Codex runs in WSL or remotely, install in that environment. Other VS Code extensions have their own skill support and discovery rules.
+
 ### Do I need to name a skill every time?
 
 No. The assistant can select a matching skill from a normal request. Name a skill explicitly when you want to direct a particular stage. The [usage guide](GUIDE.md) provides examples for both assistants.

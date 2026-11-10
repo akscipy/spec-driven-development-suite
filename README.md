@@ -66,6 +66,27 @@ python tools/distribute.py status --agent codex --scope user
 
 Use `--agent claude` if you installed for Claude Code. For a project installation, use the same `--scope project --project "..."` options used during installation. Open a fresh assistant session so the host can discover the skills.
 
+## Codex in VS Code
+
+The Codex VS Code extension discovers standalone skills from the same Codex skill directories. Follow these steps after getting the suite files:
+
+1. Open the suite folder in VS Code and select **Terminal → New Terminal**.
+2. Run the install and status commands:
+
+   ```text
+   python tools/distribute.py install --agent codex --scope user
+   python tools/distribute.py status --agent codex --scope user
+   ```
+
+3. Open the project you want to work on and start a new chat in the Codex extension.
+4. Type `$spec-workflow` to select the workflow, or describe the feature in normal language. If the skills do not appear, restart Codex.
+
+This installs all twelve skills under `~/.agents/skills/`. To install only in a project, use `--scope project --project "/absolute/path/to/project"` instead of `--scope user` in both commands. Windows paths such as `"C:/work/my-project"` are supported.
+
+If Codex runs in WSL, a development container or a remote environment, run installation in that environment so the skill files are available there. Use `python3` in place of `python` where required. This suite is a set of skills loaded by the Codex extension, so no additional VS Code extension package is needed.
+
+See [OpenAI's skill documentation](https://learn.chatgpt.com/docs/build-skills) for skill discovery and invocation, and [compatibility](COMPATIBILITY.md#codex-in-vs-code) for setup details and validation scope.
+
 ## Use it
 
 Open a project in your assistant and describe the work. Skill names are optional.
