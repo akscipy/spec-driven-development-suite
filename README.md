@@ -6,6 +6,33 @@ Connect requirements, technical decisions, implementation tasks and verification
 
 Release **0.4.3**. Twelve focused skills. Suite tools require **Python 3.10+**, with no additional Python packages.
 
+## Quick start
+
+### 1. Install
+
+Select **Code → Download ZIP**, extract the files, and open a terminal in the extracted folder. In VS Code, select **Terminal → New Terminal**. Run the command for your assistant:
+
+| Assistant | Install command |
+| --- | --- |
+| Codex, including its VS Code extension | `python tools/distribute.py install --agent codex --scope user` |
+| Claude Code | `python tools/distribute.py install --agent claude --scope user` |
+
+You need Python 3.10+. Use `python3` instead of `python` if that is your machine's command. For WSL or remote sessions, run installation where the assistant executes. See [detailed installation](#install) for project-only setup and status checks.
+
+### 2. Start a chat
+
+Open the project you want to work on and start a new chat in your coding assistant. Restart the assistant if the skills do not appear.
+
+### 3. Use it
+
+Describe what you need, for example:
+
+> Draft the requirements and acceptance checks for this feature. Stop so I can review them before implementation.
+
+The assistant can choose the relevant skill automatically. To select the full workflow yourself, use `$spec-workflow` in Codex or `/spec-workflow` in Claude Code.
+
+For a complete feature or interrupted work, see [usage examples](#use-it). To run a supplied project first, [try the working example](#try-the-working-example).
+
 ## What it helps with
 
 | Delivery situation | How the suite helps |
