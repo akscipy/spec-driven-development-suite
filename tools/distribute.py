@@ -22,7 +22,7 @@ LEGACY_NAME = 'codex-spec-suite'
 SKILLS = {'spec-workflow', 'spec-discover', 'spec-requirements', 'spec-design',
           'spec-plan', 'spec-implement', 'spec-verify', 'spec-review',
           'spec-change', 'spec-resume', 'spec-steering', 'spec-hooks'}
-DOCS = {'README.md', 'GUIDE.md', 'CHANGELOG.md', 'COMPATIBILITY.md',
+DOCS = {'LICENSE', 'README.md', 'GUIDE.md', 'CHANGELOG.md', 'COMPATIBILITY.md',
         'SECURITY.md', 'CONTRIBUTING.md', 'RELEASE.json', 'VALIDATION.md', 'EVALUATION.md',
         'PRODUCT-BRIEF.md', 'DEMO.md', 'FAQ.md'}
 REQUIRED = (DOCS - {'VALIDATION.md', 'EVALUATION.md'}) | {

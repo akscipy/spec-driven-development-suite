@@ -231,6 +231,21 @@ class DistributionTests(unittest.TestCase):
             for path, expected in manifest['files'].items():
                 self.assertEqual(dist.sha(archive.read(f'{dist.NAME}-0.3.0/' + path)), expected)
 
+    def test_archive_includes_root_license_and_manifest_hash(self):
+        artifact = dist.build(self.temp / 'licensed', root=self.source)
+        prefix = f'{dist.NAME}-0.3.0/'
+        with zipfile.ZipFile(artifact['archive']) as archive:
+            license_bytes = archive.read(prefix + 'LICENSE')
+            self.assertEqual(license_bytes, (ROOT / 'LICENSE').read_bytes())
+            self.assertIn(b'Copyright (c) 2026 Abhishek Kumar', license_bytes)
+            manifest = json.loads(archive.read(prefix + 'MANIFEST.json'))
+            self.assertEqual(manifest['files']['LICENSE'], dist.sha(license_bytes))
+
+    def test_missing_license_prevents_build(self):
+        (self.source / 'LICENSE').unlink()
+        with self.assertRaisesRegex(dist.DistributionError, 'Missing required release resource: LICENSE'):
+            dist.build(self.temp / 'unlicensed', root=self.source)
+
     def test_missing_dependency_prevents_build(self):
         (self.source / 'skills/spec-workflow/references/contract.md').unlink()
         with self.assertRaisesRegex(dist.DistributionError, 'Unpackaged resource'):

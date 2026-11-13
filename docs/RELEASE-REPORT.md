@@ -58,4 +58,6 @@ See [the protocol](../benchmarks/PROTOCOL.md), [comparison results](../benchmark
 
 ## Interpretation
 
+The model-driven counts above are historical recorded outcomes, not a fresh validation of every release. Saved comparison and onboarding implementations can be rechecked with the included acceptance tools; aggregate selection counts and session observations are not independently reproducible without the original session records. See [the evidence notes](../benchmarks/PROTOCOL.md#reading-the-recorded-evidence) for timing, source-hash, and provenance limits.
+
 The checker establishes structural consistency and freshness for declared local inputs. Requirement quality, meaningful test coverage, approval authenticity, and external environment assumptions require engineering judgment. The recorded local studies do not measure all models, operating systems, repositories, or team settings. Hooks and release controls follow the target project's configuration.

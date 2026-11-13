@@ -16,6 +16,14 @@ Keep evaluator assertions outside solver projects and prohibit access to this ha
 
 Record solver outcome, source hash, tests, scope violations, evidence artifacts, wall time when measured, model identifier if exposed, and unavailable metrics as null. Agent self-reported elapsed time or estimated tokens are not usage evidence. One run per configuration is descriptive, not a statistically reliable performance estimate. Shared-host agents have tool/model knowledge; baseline exclusion is instructed, not a separate host with skill discovery disabled.
 
+## Reading the recorded evidence
+
+In [comparison results](results.json), `evaluation_seconds` measures the acceptance harness running the completed implementation, not the agent's development time. It cannot establish a speed advantage. The three recorded implementations all passed 8/8 acceptance groups; this single-task comparison does not establish a quality advantage either.
+
+The recorded `source_sha256` values hash the original Windows source bytes with CRLF line endings. The checked-in `solutions/*/src/duration.js` files can have LF line endings after checkout, producing different byte hashes without a code change. Converting those three files from LF to CRLF reproduces the recorded hashes. Preserve the historical hashes when rerunning the evaluation and record new results separately.
+
+[Selection results](selection-results.json) summarize historical agent sessions; per-session transcripts and all selection fixtures are not included, so the aggregate selection outcomes cannot be independently replayed from this repository alone. [Onboarding results](onboarding-result.json) likewise record a historical agent exercise, not a human onboarding study. Its saved solution and acceptance scorer allow behavior to be rechecked, but do not recreate the original session or independently verify its workflow observations.
+
 ## Behavioral release checks
 
 Use independent contexts for stage-only/guided requests and resumption/change work. Include false-done records, absent evidence, multiple feature ambiguity, and lightweight fixes. Observe actual scope and artifact changes; do not infer success from compliance prose. Earlier Python trials are historical evidence, separate from current candidate tests.
